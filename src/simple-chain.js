@@ -14,7 +14,10 @@ const chainMaker = {
   },
 
   removeLink(position) {
-    if (isNaN(position) || typeof(this.chain[position-1]) === 'undefined') throw new Error();
+    if (isNaN(position) || typeof(this.chain[position-1]) === 'undefined') {
+      this.chain = []; //reset data
+      throw new Error();
+    }
 
     this.chain.splice(position - 1, 1);
 
